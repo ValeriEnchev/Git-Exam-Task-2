@@ -1,0 +1,7 @@
+#!/bin/sh
+commit_msg=$(cat "$1")
+
+if ! echo "$commit_msg" | grep -Eq '^TASK-[0-9]+: .+'; then
+  echo "Invalid commit message. Use format: TASK-123: Your message"
+  exit 1
+fi

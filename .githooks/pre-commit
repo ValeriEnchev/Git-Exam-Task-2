@@ -1,0 +1,10 @@
+#!/bin/sh
+
+echo "Checking code format with Prettier before commit"
+npx prettier --check *.js
+
+if [ $? -ne 0 ]; then
+   echo "Code is not formatted corectly. Commit is blocked!"
+   exit 1
+fi
+echo "Code is formatted. Processing with commit."

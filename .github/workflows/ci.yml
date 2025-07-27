@@ -1,0 +1,15 @@
+name: CI Pipeline
+on: [push, pull_request]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+      - name: Install Dependencies
+        run: npm install
+      - name: Install jest
+        run: npm install jest --user 0 --unsafe-perm true
+      - name: Run Tests
+        run: npm test
+
